@@ -76,64 +76,7 @@
             <div class="bg-white w-full rounded-b-md shadow-lg p-5 open space-y-5">
                 <div class="space-y-5">
                     <div class="flex justify-between">
-                        <img src="./assets/Open-Status.png" alt="" class="w-8">
-                        <button class="btn btn-soft btn-error rounded-full">HIGH</button>
-                    </div>
-                    <h2 class="font-bold">Fix navigation menu on mobile devices</h2>
-                    <p>The navigation menu doesn't collapse properly on mobile devices...</p>
-                    <div class="flex gap-2">
-                        <button class="btn btn-outline btn-error rounded-full text-red">BUG</button>
-                        <button class="btn btn-outline btn-warning rounded-full text-[#D97706]">HELP NEEDED</button>
-                    </div>
-                </div>
-                <hr class="border-1 border-black/10 w-full inline-block">
-                <div>
-                    <p>#1by john_doe</p>
-                    <p>1/15/2024</p>
-                </div>
-            </div>
-            <div class="bg-white w-full rounded-b-md shadow-lg p-5 open space-y-5">
-                <div class="space-y-5">
-                    <div class="flex justify-between">
-                        <img src="./assets/Open-Status.png" alt="" class="w-8">
-                        <button class="btn btn-soft btn-error rounded-full">HIGH</button>
-                    </div>
-                    <h2 class="font-bold">Fix navigation menu on mobile devices</h2>
-                    <p>The navigation menu doesn't collapse properly on mobile devices...</p>
-                    <div class="flex gap-2">
-                        <button class="btn btn-outline btn-error rounded-full text-red">BUG</button>
-                        <button class="btn btn-outline btn-warning rounded-full text-[#D97706]">HELP NEEDED</button>
-                    </div>
-                </div>
-                <hr class="border-1 border-black/10 w-full inline-block">
-                <div>
-                    <p>#1by john_doe</p>
-                    <p>1/15/2024</p>
-                </div>
-            </div>
-            <div class="bg-white w-full rounded-b-md shadow-lg p-5 open space-y-5">
-                <div class="space-y-5">
-                    <div class="flex justify-between">
-                        <img src="./assets/Open-Status.png" alt="" class="w-8">
-                        <button class="btn btn-soft btn-error rounded-full">HIGH</button>
-                    </div>
-                    <h2 class="font-bold">Fix navigation menu on mobile devices</h2>
-                    <p>The navigation menu doesn't collapse properly on mobile devices...</p>
-                    <div class="flex gap-2">
-                        <button class="btn btn-outline btn-error rounded-full text-red">BUG</button>
-                        <button class="btn btn-outline btn-warning rounded-full text-[#D97706]">HELP NEEDED</button>
-                    </div>
-                </div>
-                <hr class="border-1 border-black/10 w-full inline-block">
-                <div>
-                    <p>#1by john_doe</p>
-                    <p>1/15/2024</p>
-                </div>
-            </div>
-            <div class="bg-white w-full rounded-b-md shadow-lg p-5 open space-y-5">
-                <div class="space-y-5">
-                    <div class="flex justify-between">
-                        <img src="./assets/Open-Status.png" alt="" class="w-8">
+                        <img src="./assets/Open-Status.png" alt="" class="w-8 cuusor-pointer" onclick="my_modal_5.showModal()">
                         <button class="btn btn-soft btn-error rounded-full">HIGH</button>
                     </div>
                     <h2 class="font-bold">Fix navigation menu on mobile devices</h2>
@@ -151,6 +94,19 @@
             </div>
         </div>
     </div>
+    <!-- Open the modal using ID.showModal() method -->
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <h3 class="text-lg font-bold">Hello!</h3>
+            <p class="py-4">Press ESC key or click the button below to close</p>
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 </body>
 
 </html>
