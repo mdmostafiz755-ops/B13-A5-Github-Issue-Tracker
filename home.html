@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +23,32 @@
         }
     </style>
 </head>
-<body>
-    <h1>hi</h1>
+
+<body class="bg-[#F8FAFC] min-h-screen">
+    <nav class="flex justify-between p-5 bg-white">
+        <div class="flex justify-center items-center gap-3">
+            <img src="./assets/github-logo.png" alt="" class="w-10">
+            <h2 class="font-bold">Github Issues Traker</h2>
+        </div>
+        <div>
+            <div class="join gap-4">
+                <div>
+                    <label class="input validator join-item rounded-sm">
+                        <input type="text" placeholder="🔍︎ search issues" required />
+                    </label>
+                </div>
+                <button class="btn btn-primary join-item rounded-sm">+ New Issue</button>
+            </div>
+        </div>
+    </nav>
+    <div class="w-4/6 mx-auto bg-white p-5 mt-14 rounded-sm shadow-sm">
+        <button class="btn btn-primary">All</button>
+        <button class="btn btn-nutral">Open</button>
+        <button class="btn btn-nutral">Closed</button>
+    </div>
+    <div class="w-4/6 mx-auto bg-white rounded-sm shadow-sm mt-5">
+        
+    </div>
 </body>
+
 </html>
