@@ -67,7 +67,7 @@
                 </div>
                 <div class="flex gap-3 justify-center items-center">
                     <div class="rounded-full bg-[#A855F7] w-4 h-4"></div>
-                    <p>Close</p>
+                    <p>close</p>
                 </div>
             </div>
         </div>
@@ -76,7 +76,8 @@
             <div class="bg-white w-full rounded-b-md shadow-lg p-5 open space-y-5">
                 <div class="space-y-5">
                     <div class="flex justify-between">
-                        <img src="./assets/Open-Status.png" alt="" class="w-8 cuusor-pointer" onclick="my_modal_5.showModal()">
+                        <img src="./assets/Open-Status.png" alt="" class="w-8 cuusor-pointer"
+                            onclick="my_modal_5.showModal()">
                         <button class="btn btn-soft btn-error rounded-full">HIGH</button>
                     </div>
                     <h2 class="font-bold">Fix navigation menu on mobile devices</h2>
@@ -96,15 +97,37 @@
     </div>
     <!-- Open the modal using ID.showModal() method -->
     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
-            <h3 class="text-lg font-bold">Hello!</h3>
-            <p class="py-4">Press ESC key or click the button below to close</p>
-            <div class="modal-action">
-                <form method="dialog">
-                    <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn">Close</button>
-                </form>
+        <div class="modal-box space-y-5">
+            <h3 class="text-lg font-bold">Fix broken image uploads</h3>
+            <div class="flex items-center gap-3">
+                <button class="btn btn-success rounded-full">Opened</button>
+                <div class="w-2 h-2 bg-[#64748B] rounded-full"></div>
+                <p>Opened by Fahim Rahman</p>
+                <div class="w-2 h-2 bg-[#64748B] rounded-full"></div>
+                <p>22/02/2026</p>
             </div>
+            <div class="flex gap-2">
+                <button class="btn btn-outline btn-error rounded-full text-red">BUG</button>
+                <button class="btn btn-outline btn-warning rounded-full text-[#D97706]">HELP NEEDED</button>
+            </div>
+            <p>The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
+            <div>
+                <div class="flex gap-15 items-center">
+                    <div>
+                        <p>Assignee:</p>
+                        <p class="font-bold">Fahim Ahmed</p>
+                    </div>
+                    <div>
+                        <p>Priority:</p>
+                        <button class="btn btn-error text-white rounded-full">HIGH</button>
+                    </div>
+                </div>
+            </div>
+            <form method="dialog" class="flex justify-end">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn btn-primary">Close</button>
+            </form>
+        </div>
         </div>
     </dialog>
 </body>
