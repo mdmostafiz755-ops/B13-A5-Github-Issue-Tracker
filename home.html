@@ -61,7 +61,7 @@
             <div class="flex gap-3 justify-center items-center">
                 <img src="./assets/Aperture.png" alt="">
                 <div>
-                    <h2 class="font-bold" id="issue-no">50 Issues</h2>
+                    <h2 class="font-bold" id="issue-number">50 Issues</h2>
                     <p>Track and manage your project issues</p>
                 </div>
             </div>
@@ -93,37 +93,8 @@
     </div>
     <!-- Open the modal using ID.showModal() method -->
     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box space-y-5">
-            <h3 class="text-lg font-bold">Fix broken image uploads</h3>
-            <div class="flex items-center gap-3">
-                <button class="btn btn-success rounded-full">Opened</button>
-                <div class="w-2 h-2 bg-[#64748B] rounded-full"></div>
-                <p>Opened by Fahim Rahman</p>
-                <div class="w-2 h-2 bg-[#64748B] rounded-full"></div>
-                <p>22/02/2026</p>
-            </div>
-            <div class="flex gap-2">
-                <button class="btn btn-outline btn-error rounded-full text-red">BUG</button>
-                <button class="btn btn-outline btn-warning rounded-full text-[#D97706]">HELP NEEDED</button>
-            </div>
-            <p>The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
-            <div>
-                <div class="flex gap-15 items-center">
-                    <div>
-                        <p>Assignee:</p>
-                        <p class="font-bold">Fahim Ahmed</p>
-                    </div>
-                    <div>
-                        <p>Priority:</p>
-                        <button class="btn btn-error text-white rounded-full">HIGH</button>
-                    </div>
-                </div>
-            </div>
-            <form method="dialog" class="flex justify-end">
-                <!-- if there is a button in form, it will close the modal -->
-                <button class="btn btn-primary">Close</button>
-            </form>
-        </div>
+        <div id="modal-container">
+            <!--dynamically filled by js-->
         </div>
     </dialog>
     <script src="./home.js"></script>
