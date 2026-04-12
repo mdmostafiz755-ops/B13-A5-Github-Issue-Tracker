@@ -44,10 +44,10 @@
             <div class="join gap-4">
                 <div>
                     <label class="input validator join-item rounded-sm">
-                        <input type="text" placeholder="🔍︎ search issues" required />
+                        <input type="text" placeholder="🔍︎ search issues" required  id="search-keyword"/>
                     </label>
                 </div>
-                <button class="btn btn-primary join-item rounded-sm">+ New Issue</button>
+                <button class="btn btn-primary join-item rounded-sm" id="search-btn">+ New Issue</button>
             </div>
         </div>
     </nav>
@@ -88,6 +88,9 @@
             <!--dynamically addong using api fetch-->
         </div>
         <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-5 gap-3 hidden" id='close-container'>
+            <!--dynamically addong using api fetch-->
+        </div>
+        <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-5 gap-3 hidden" id='search-container'>
             <!--dynamically addong using api fetch-->
         </div>
     </div>

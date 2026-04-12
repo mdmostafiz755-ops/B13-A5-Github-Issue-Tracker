@@ -1,12 +1,17 @@
 let currentTab = '';
 const active = ['btn-primary'];
-const inactive = ['btn-nutral'];
+const inactive = ['btn-neutral'];
+
 let allissue = [];
 let singleissue = [];
+let searchkey = [];
+
 const spinner = document.querySelector('#loader');
 
 const showLoader = () => spinner.classList.remove('hidden');
 const hideLoader = () => spinner.classList.add('hidden');
+
+
 const switchTab = (tab) => {
     const tabs = ['all', 'open', 'close'];
     currentTab = tab;
@@ -27,9 +32,8 @@ const switchTab = (tab) => {
     const openCon = document.querySelector("#open-container");
     const closeCon = document.querySelector("#close-container");
 
-    const containers = [allCon, openCon, closeCon];
+    [allCon, openCon, closeCon].forEach(c => c.classList.add('hidden'));
 
-    containers.forEach(c => c.classList.add('hidden'));
     const issueNumber = document.querySelector('#issue-number');
 
     if (tab === 'all') {
@@ -48,29 +52,30 @@ const switchTab = (tab) => {
 
 switchTab('all');
 
+
+
 const allIssueUrl = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
 
 const loadCards = () => {
     showLoader();
+
     fetch(allIssueUrl)
         .then(res => res.json())
         .then(data => {
             allissue = data.data;
-            console.log(allissue);
             displayCards(allissue);
             hideLoader();
         });
-
 };
 
 loadCards();
+
 
 const loadModal = (id) => {
     fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
         .then(res => res.json())
         .then(data => {
             singleissue = data.data;
-            console.log(singleissue);
             displayModal(singleissue);
         });
 };
@@ -78,50 +83,35 @@ const loadModal = (id) => {
 
 const createModal = (mod) => {
     const modalelemt = document.createElement('div');
-    modalelemt.innerHTML =
-        `
+
+    modalelemt.innerHTML = `
         <div class="modal-box space-y-5">
             <h3 class="text-lg font-bold">${mod.title}</h3>
 
             <div class="flex items-center gap-3">
-                <button class="btn btn-success rounded-full">
-                    ${mod.status}
-                </button>
-
+                <button class="btn btn-success rounded-full">${mod.status}</button>
                 <div class="w-2 h-2 bg-[#64748B] rounded-full"></div>
-
                 <p>Opened by ${mod.author}</p>
-
                 <div class="w-2 h-2 bg-[#64748B] rounded-full"></div>
-
                 <p>${new Date(mod.createdAt).toLocaleDateString("en-GB")}</p>
             </div>
 
             <div class="flex gap-2">
-                <button class="btn btn-outline btn-error rounded-full">
-                    ${mod.labels[0]}
-                </button>
-
-                <button class="btn btn-outline btn-warning rounded-full">
-                    ${mod.labels[1]}
-                </button>
+                <button class="btn btn-outline btn-error rounded-full">${mod.labels[0]}</button>
+                <button class="btn btn-outline btn-warning rounded-full">${mod.labels[1]}</button>
             </div>
 
             <p>${mod.description}</p>
 
-            <div>
-                <div class="flex gap-15 items-center">
-                    <div>
-                        <p>Assignee:</p>
-                        <p class="font-bold">${mod.assignee}</p>
-                    </div>
+            <div class="flex gap-15 items-center">
+                <div>
+                    <p>Assignee:</p>
+                    <p class="font-bold">${mod.assignee}</p>
+                </div>
 
-                    <div>
-                        <p>Priority:</p>
-                        <button class="btn btn-error text-white rounded-full">
-                            ${mod.priority}
-                        </button>
-                    </div>
+                <div>
+                    <p>Priority:</p>
+                    <button class="btn btn-error text-white rounded-full">${mod.priority}</button>
                 </div>
             </div>
 
@@ -129,18 +119,16 @@ const createModal = (mod) => {
                 <button class="btn btn-primary">Close</button>
             </form>
         </div>
-        `;
+    `;
 
     return modalelemt;
 };
-
 
 const renderModal = (data, containerId) => {
     const renderContainer = document.querySelector(containerId);
     renderContainer.innerHTML = '';
     renderContainer.appendChild(createModal(data));
 };
-
 
 const displayModal = (data) => {
     renderModal(data, '#modal-container');
@@ -151,7 +139,7 @@ const createCards = (element) => {
     const cardElemnt = document.createElement('div');
 
     cardElemnt.innerHTML = `
-        <div class="bg-white w-full rounded-b-md shadow-lg p-5 space-y-5 cursor-pointer ${element.status === 'open' ? 'open' : 'close'}"
+        <div class="bg-white w-full rounded-b-md shadow-lg p-5 space-y-5 cursor-pointer"
              id="card-${element.id}"
              onclick="loadModal('${element.id}'); my_modal_5.showModal()">
 
@@ -169,13 +157,8 @@ const createCards = (element) => {
                 <p>${element.description.slice(0, 40)}...</p>
 
                 <div class="flex gap-2 text-[8px] scale-[0.8] justify-center">
-                    <button class="btn btn-outline btn-error rounded-full">
-                        ${element.labels[0]}
-                    </button>
-
-                    <button class="btn btn-outline btn-warning rounded-full">
-                        ${element.labels[1]}
-                    </button>
+                    <button class="btn btn-outline btn-error rounded-full">${element.labels[0]}</button>
+                    <button class="btn btn-outline btn-warning rounded-full">${element.labels[1]}</button>
                 </div>
             </div>
 
@@ -191,7 +174,6 @@ const createCards = (element) => {
     return cardElemnt;
 };
 
-
 const render = (data, containerId) => {
     const renderContainer = document.querySelector(containerId);
     renderContainer.innerHTML = '';
@@ -206,11 +188,29 @@ const displayCards = (data) => {
     const openIssues = data.filter(issue => issue.status === 'open');
     const closeIssues = data.filter(issue => issue.status === 'closed');
 
-    console.log(currentTab);
-
     render(data, '#card-container');
     render(openIssues, '#open-container');
     render(closeIssues, '#close-container');
 
-    switchTab('all');
+    switchTab(currentTab || 'all');
 };
+
+document.querySelector('#search-btn').addEventListener('click', () => {
+    const searchKeyword = document.querySelector('#search-keyword');
+    const searchV = searchKeyword.value.trim().toLowerCase();
+
+    if (!searchV) {
+        displayCards(allissue);
+        return;
+    }
+
+    showLoader();
+
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchV}`)
+        .then(res => res.json())
+        .then(data => {
+            searchkey = data.data;
+            displayCards(searchkey);
+            hideLoader();
+        });
+});
