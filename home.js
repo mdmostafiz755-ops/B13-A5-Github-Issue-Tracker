@@ -1,6 +1,6 @@
 let currentTab = '';
 const active = ['btn-primary'];
-const inactive = ['btn-neutral'];
+const inactive = ['btn-nutral'];
 
 let allissue = [];
 let singleissue = [];
