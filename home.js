@@ -139,7 +139,7 @@ const createCards = (element) => {
     const cardElemnt = document.createElement('div');
 
     cardElemnt.innerHTML = `
-        <div class="bg-white w-full rounded-b-md shadow-lg p-5 space-y-5 cursor-pointer"
+        <div class="bg-white w-full rounded-b-md shadow-lg p-5 space-y-5 cursor-pointer ${element.status==='open'? 'open':'close'}"
              id="card-${element.id}"
              onclick="loadModal('${element.id}'); my_modal_5.showModal()">
 
